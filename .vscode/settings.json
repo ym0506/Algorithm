@@ -4,6 +4,7 @@
         "iostream": "cpp",
         "iomanip": "cpp",
         "stack": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "deque": "cpp"
     }
 }
