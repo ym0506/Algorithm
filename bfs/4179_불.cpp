@@ -35,7 +35,7 @@ int main(void)
         Q_fire.push({i,j});
         fire_time[i][j] = 0;  //불 시작점 0초
       }
-      if (board[i][j] = 'J') {
+      if (board[i][j] == 'J') {
         Q_jihun.push({i,j});
         jihun_time[i][j] = 0;
       }
@@ -51,7 +51,7 @@ int main(void)
       int ny = cur.Y + dy[dir];
 
       if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-      if (fire_time[nx][ny] >= 0 || board[ny][ny] == '#') continue;
+      if (fire_time[nx][ny] >= 0 || board[nx][ny] == '#') continue;
 
       fire_time[nx][ny] = fire_time[cur.X][cur.Y] + 1;
       Q_fire.push({nx,ny});
@@ -67,10 +67,10 @@ int main(void)
       int nx = cur.X + dx[dir];
       int ny = cur.Y + dy[dir];
 
-      if (nx < 0 || nx >= n || ny < 0 || ny >= m) //범위를 벗어나면 탈출
+      if (nx < 0 || nx >= n || ny < 0 || ny >= m)  { //범위를 벗어나면 탈출
         cout << jihun_time[cur.X][cur.Y] + 1;
         return 0;
-
+      }
         if (jihun_time[nx][ny] >= 0 || board[nx][ny] == '#') continue; //이미 방문했거나 벽
         if (fire_time[nx][ny] != -1 && fire_time[nx][ny] <= jihun_time[cur.X][cur.Y] + 1) continue;
         // 불이 먼저(동시에) 도착하느냐?

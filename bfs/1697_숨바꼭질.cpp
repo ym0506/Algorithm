@@ -17,7 +17,7 @@ int main(void)
   queue<int> Q;
   Q.push(n);  //큐에 시작점 투입
 
-  while(dist[k] != -1) { //동생을 찾을 때까지
+  while(dist[k] == -1) { //동생을 찾을 때까지
     int cur = Q.front();
     Q.pop(); //현재 위치 꺼내기
 
